@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/about.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/about_responsive.css' %}">
+     <style>
+         label{width:200px;display:inline-block;margin:5px;}
+         #form
+         {align:right;border-radius:10px;background-color:black;color:white;width:400px;padding:20px;}
+         #submit
+         {width:30%;}
+
+
+
+
+    </style>
+
+</head>
+<body style = " background-image:url({% static 'images/people.jpg' %})">
+
+<h4 style="color:yellow;text-align:center;font-size:400%;">Sign In</h4>
+<fieldset>
+<form method="post" action="register" style="text-align:center;" >
+    {% csrf_token %}
+    <label style="text-align:center;">Enter Your Name</label>
+  <input type="text" name="username" placeholder="Enter Your Name"><br>
+      <label style="text-align:center;">Enter Your Email</label>
+  <input type="email" name="email" placeholder="Enter Your Email"><br>
+      <label style="text-align:center;">Contact Details</label>
+  <input type="number" name="Number" placeholder="Mobile Number"><br>
+      <label style="text-align:center;">Create A Password</label>
+  <input type="password" name="password" placeholder="Password"><br>
+      <label style="text-align:center;">Conform Password</label>
+  <input type="password" name="password2" placeholder="Conform password"><br>
+   <label style="text-align:center;">I Accept The Terms And Conditions</label>
+  <input type="checkbox" name="checkbox" placeholder="I Accept The Terms And Conditions"><br>
+    <input type="submit" name="submit" placeholder="submit" id="submit">
+
+
+</form>
+
+{%for message in messages%}
+<h1 style="text-align:center;">{{message}}</h1>
+{%endfor%}
+</fieldset>
+</body>
+</html>
